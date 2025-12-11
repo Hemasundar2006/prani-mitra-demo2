@@ -5,6 +5,10 @@
             "destination": "https://prani-mitra-backend1.onrender.com/api/$1"
         },
         {
+            "source": "/ws/(.*)",
+            "destination": "https://prani-mitra-backend1.onrender.com/ws/$1"
+        },
+        {
             "source": "/(.*)",
             "destination": "/index.html"
         }

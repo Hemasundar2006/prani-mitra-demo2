@@ -39,7 +39,7 @@ const SummaryScreen = ({ transcript, onRestart, language, recordingUrl }) => {
     const prompt = `Based on the following conversation with a farmer, please provide a concise summary of the key points and advice given. The summary must be written in ${language}. Format it as a simple, easy-to-read text message that could be sent via SMS.\n\nConversation:\n${conversationText}\n\nSummary:`;
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+      const ai = new GoogleGenAI({ apiKey: process.env.VITE_GEMINI_API_KEY });
       const response = await ai.models.generateContent({
         model: 'gemini-2.5-flash',
         contents: prompt
@@ -74,7 +74,7 @@ const SummaryScreen = ({ transcript, onRestart, language, recordingUrl }) => {
     const ttsPrompt = `${thankYou}. ${intro} ${summary}`;
 
     try {
-      const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+      const ai = new GoogleGenAI({ apiKey: process.env.VITE_GEMINI_API_KEY });
       const response = await ai.models.generateContent({
         model: "gemini-2.5-flash-preview-tts",
         contents: [{ parts: [{ text: ttsPrompt }] }],

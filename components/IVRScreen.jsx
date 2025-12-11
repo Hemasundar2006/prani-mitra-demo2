@@ -92,7 +92,7 @@ const IVRScreen = ({ onCallEnd, language, service, onStartupError }) => {
         mergedStreamDestRef.current = outputAudioContextRef.current.createMediaStreamDestination();
         nextStartTimeRef.current = 0;
         
-        const ai = new GoogleGenAI({ apiKey: process.env.GEMINI_API_KEY });
+        const ai = new GoogleGenAI({ apiKey: process.env.VITE_GEMINI_API_KEY });
 
         const knowledgeText = knowledgeBase.map(qa => `Q: ${qa.question}\nA: ${qa.answer}`).join('\n\n');
         
